@@ -1,0 +1,26 @@
+{
+  "name": "starter-next-js-sanity",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"next --port 3000\" \"cd studio && sanity start\"",
+    "build": "echo 'Building Sanity to public/studio' && cd studio && sanity build ../public/studio -y && cd .. && next build",
+    "start": "vercel dev",
+    "postinstall": "lerna bootstrap"
+  },
+  "dependencies": {
+    "@styled-jsx/plugin-sass": "^4.0.1",
+    "next": "11.1.0",
+    "next-sanity": "^0.4.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "sass": "^1.38.0"
+  },
+  "devDependencies": {
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.0",
+    "@sanity/cli": "^2.0.5",
+    "concurrently": "^5.3.0",
+    "lerna": "^3.22.1"
+  }
+}

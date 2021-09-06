@@ -1,0 +1,13 @@
+{ 
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "compact",
+      "extensionName": ".min.css",
+      "savePath": "~/../css"
+    }
+  ],
+  "liveSassCompile.settings.generateMap": false,
+  "liveSassCompile.settings.excludeList": [
+    "public_html/sass/sass_ec/*"
+  ],
+}

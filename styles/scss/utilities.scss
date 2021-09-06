@@ -1,0 +1,365 @@
+/*
+
+	U1 SETTINGS
+	U2 COLOR 
+	U3 TYPOGRAPHY
+	U4 LAYOUTS
+
+*/
+
+/*	U1 SETTINGS	*/
+
+@font-face {
+  font-family: 'AW Conqueror';
+  src: url('/fonts/font-aw-conqueror-light.woff') format('woff'),
+    url('/fonts/font-aw-conqueror-light.woff2') format('woff2'),
+    url('/fonts/font-aw-conqueror-light.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: block;
+}
+
+:root {
+  --cr-black: #000000;
+  --cr-white: #ffffff;
+  --cr-subdued: #dddddd;
+  --cr-subtle: #f9f9f9;
+  --cr-offwhite: #f4f1ec;
+  --cr-blackhaze: #e1ded7;
+
+  --t-h-1: 55px/1.1 'AW Conqueror', Helvetica, sans-serif;
+  --t-h-2: 38px/1.1 'AW Conqueror', Helvetica, sans-serif;
+  --t-h-3: 14px/1.1 'AW Conqueror', Helvetica, sans-serif;
+
+  --t-b-1: 400 24px/1.1 Helvetica, sans-serif;
+  --t-b-2: 300 22px/1.1 Helvetica, sans-serif;
+  --t-b-3: 400 18px/1.1 Helvetica, sans-serif;
+  --t-b-4: 400 14px/1.1 Helvetica, sans-serif;
+
+  --t-l-1: 400 14px/1 Helvetica, sans-serif;
+  --t-l-2: 700 14px/1 Helvetica, sans-serif;
+
+  --s-1: 5px;
+  --s-2: 10px;
+  --s-3: 20px;
+  --s-4: 40px;
+  --s-5: 80px;
+  --s-6: 160px;
+
+  --s-section: var(--s-5);
+  --s-section-half: 60px;
+  --s-contain: 4vw;
+  --s-contain-max: 1600px;
+  --s-edge: var(--s-contain);
+
+  --a-panel: cubic-bezier(0.36, 0.07, 0.19, 0.97);
+  --a-bounce: cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  --a-swift: cubic-bezier(0, 0.99, 0.6, 0.99);
+}
+
+::selection {
+  text-shadow: none;
+  color: var(--cr-berry);
+}
+
+::-moz-selection {
+  text-shadow: none;
+  color: var(--cr-berry);
+}
+
+.cr-bloodorange ::selection {
+  text-shadow: none;
+  color: var(--cr-bloodorange);
+}
+
+.cr-bloodorange ::-moz-selection {
+  text-shadow: none;
+  color: var(--cr-bloodorange);
+}
+
+.bg-bloodorange ::selection {
+  text-shadow: none;
+  color: var(--cr-gold);
+}
+
+.bg-bloodorange ::-moz-selection {
+  text-shadow: none;
+  color: var(--cr-bloodorange);
+}
+
+@media screen and (max-width: 1200px) {
+  :root {
+  }
+}
+
+@media screen and (max-width: 900px) {
+  :root {
+  }
+}
+
+@media screen and (max-width: 600px) {
+  :root {
+    --s-contain: 6vw;
+    --s-section: var(--s-4);
+    --s-section-half: var(--s-3);
+  }
+}
+
+@media screen and (min-width: 1777px) {
+  /*	update edge spacing when .c reaches its max width	*/
+
+  :root {
+    --s-edge: calc((100vw - var(--s-contain-max)) / 2);
+  }
+}
+
+@media (hover: hover) {
+  * {
+    outline-offset: 3px;
+    outline-color: transparent;
+  }
+}
+
+/*	U1 SETTINGS - END	*/
+
+/*	U2 COLOR	*/
+
+html {
+  color: var(--cr-black);
+}
+
+.cr-black {
+  color: var(--cr-black);
+}
+.cr-white {
+  color: var(--cr-white);
+}
+.cr-subdued {
+  color: var(--cr-subdued);
+}
+.cr-subtle {
+  color: var(--cr-subtle);
+}
+
+.cr-offwhite {
+  color: var(--cr-offwhite);
+}
+.cr-blackhaze {
+  color: var(--cr-blackhaze);
+}
+
+.bg-black {
+  background-color: var(--cr-black);
+}
+.bg-white {
+  background-color: var(--cr-white);
+}
+.bg-subdued {
+  background-color: var(--cr-subdued);
+}
+.bg-subtle {
+  background-color: var(--cr-subtle);
+}
+.bg-offwhite {
+  background-color: var(--cr-offwhite);
+}
+.bg-blackhaze {
+  background-color: var(--cr-blackhaze);
+}
+
+/*	U3 COLOR - END	*/
+
+/*	U3 TYPOGRAPHY	*/
+
+body {
+  font: var(--t-b-2);
+  line-height: 1;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font: var(--t-h-1);
+}
+
+.t-h-1 {
+  font: var(--t-h-1);
+}
+
+.t-h-2 {
+  font: var(--t-h-2);
+}
+
+.t-h-3 {
+  font: var(--t-h-3);
+}
+
+p,
+ol,
+ul {
+  font: var(--t-b-2);
+}
+
+.t-b-1 {
+  font: var(--t-b-1);
+}
+
+.t-b-2 {
+  font: var(--t-b-2);
+}
+
+.t-b-3 {
+  font: var(--t-b-3);
+}
+
+.t-l-1 {
+  font: var(--t-l-1);
+  letter-spacing: 0.1px;
+}
+
+.t-l-2 {
+  letter-spacing: 0.1px;
+  font: var(--t-l-2);
+}
+
+.t-l-3 {
+  font: var(--t-l-3);
+}
+
+/*	U3 TYPOGRAPHY - END	*/
+
+/*	U4 LAYOUTS	*/
+
+@media screen and (min-width: 2000px) {
+  /*	cap full width content at 2000px so that it doesn't infinitely extend	*/
+
+  html {
+    background-color: var(--cr-subtle);
+  }
+  body {
+    max-width: 2000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.c,
+.c-1,
+.c-2,
+.c-3,
+.c-4 {
+  /* c for contain */
+  position: relative;
+  width: calc(100vw - var(--s-contain) * 2);
+  max-width: var(--s-contain-max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.c-1 {
+  max-width: 1200px;
+}
+
+.c-2 {
+  max-width: 900px;
+}
+
+.c-3 {
+  max-width: 600px;
+}
+
+.c-4 {
+  max-width: 450px;
+}
+
+.f-h,
+.f-h-top,
+.f-h-center,
+.f-h-bottom {
+  /* f for flex */
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+}
+
+.f-h-top {
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+}
+
+.f-h-center {
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.f-h-bottom {
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
+}
+
+.f-v,
+.f-v-middle {
+  /* f, v for flex vertical */
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+}
+
+.f-v-middle {
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.p-fill {
+  /* p for position */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.p-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.avoid-style-flash {
+  visibility: hidden;
+}
+
+.user-select-disable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.screen-reader-only {
+  position: absolute !important;
+  left: -10000px !important;
+  top: auto !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
+
+.clear-float:after {
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+/*	U4 LAYOUTS - END	*/
