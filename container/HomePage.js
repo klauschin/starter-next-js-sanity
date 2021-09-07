@@ -7,16 +7,15 @@ export default function HomePage({ mainData }) {
     <>
       <HeadMeta title={title} description={content} />
       <div className="home-page bg-offwhite f-h-center">
-        <PortableText blocks={content} />
+        <div className="c-2">
+          <PortableText blocks={content} className="type-spacing" />
+        </div>
       </div>
       <style global jsx>{`
         .home-page {
           min-height: 100vh;
           width: 100%;
           justify-content: center;
-          > div {
-            max-width: 900px;
-          }
         }
       `}</style>
     </>
