@@ -1,34 +1,27 @@
-import React from 'react';
-import Body from './Body';
-import Head from 'next/head';
-import Link from 'next/link';
+import HeadMetaAndPreload from '@/components/HeadMetaAndPreload';
+import HeadSharing from '@/components/HeadSharing';
+import HeadTrackingCode from '@/components/HeadTrackingCode';
 
-const Layout = (props) => {
-  return (
-    <>
-      <Head>
-        <link
-          rel="preload"
-          href="/fonts/font-aw-conqueror-light.ttf"
-          as="font"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          href="/fonts/font-aw-conqueror-light.woff"
-          as="font"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          href="/fonts/font-aw-conqueror-light.woff2"
-          as="font"
-          crossOrigin=""
-        />
-      </Head>
-      <Body>{props.children}</Body>
-    </>
-  );
+import AdaSkip from './AdaSkip';
+import Announcement from './Announcement';
+import Footer from './Footer';
+import Header from './Header';
+import Main from './Main';
+
+const Layout = ({ siteData = {}, pageData = {}, schema, children }) => {
+	return (
+		<>
+			<HeadMetaAndPreload />
+			<HeadSharing site={siteData} page={pageData} schema={schema} />
+			<HeadTrackingCode siteData={siteData} />
+
+			<AdaSkip />
+			<Announcement data={siteData?.announcement} />
+			<Header data={siteData?.header} />
+			<Main siteData={siteData}>{children}</Main>
+			<Footer siteData={siteData} data={siteData.footer} />
+		</>
+	);
 };
 
 export default Layout;

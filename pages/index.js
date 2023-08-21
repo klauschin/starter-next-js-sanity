@@ -1,33 +1,45 @@
-import HomePage from '@/container/HomePage';
-import { useRouter } from 'next/router';
-import { groq } from 'next-sanity';
-import { usePreviewSubscription, urlFor, PortableText } from '@/lib/sanity';
-import { getClient } from '@/lib/sanity.server';
+import Error from 'next/error';
+import Link from 'next/link';
+import { Module } from '@/components/modules';
+import { getHomePageData } from '@/data';
 
-const homePageDataQuery = groq`*[_type == "homepage"][0]`;
+function IndexPage({ data }) {
+	const { page } = data || {};
 
-function IndexPage(props) {
-  const { homeData, preview } = props;
+	if (!page) {
+		return (
+			<Error
+				title={
+					<Link href="/sanity/desk/settings;general" target="_blank">
+						Click to set Hompage
+					</Link>
+				}
+			/>
+		);
+	}
 
-  const router = useRouter();
-
-  const { data: homePageData } = usePreviewSubscription(homePageDataQuery, {
-    initialData: homeData,
-    enabled: preview || router.query.preview !== null,
-  });
-
-  return <HomePage mainData={homePageData} />;
+	return (
+		<>
+			{page.modules?.map((module, key) => (
+				<Module key={key} index={key} module={module} />
+			))}
+		</>
+	);
 }
 
-export async function getStaticProps({ params = {}, preview = false }) {
-  const homeData = await getClient(preview).fetch(homePageDataQuery);
+export async function getStaticProps({ preview = {}, previewData }) {
+	const pageData = await getHomePageData({
+		active: preview,
+		token: previewData?.token,
+	});
 
-  return {
-    props: {
-      preview,
-      homeData,
-    },
-  };
+	return {
+		props: {
+			preview,
+			data: pageData,
+		},
+		revalidate: Number(process.env.NEXT_PUBLIC_REVALIDATE_TIME),
+	};
 }
 
 export default IndexPage;
